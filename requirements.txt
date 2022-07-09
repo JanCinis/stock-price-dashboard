@@ -1,0 +1,6 @@
+alpha_vantage==2.3.1
+dash==2.5.1
+dash_bootstrap_components==1.2.0
+pandas==1.4.2
+plotly==5.9.0
+gunicorn
