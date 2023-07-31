@@ -1,3 +1,4 @@
+import keys
 import dash
 from dash import dcc
 from dash import html
@@ -11,9 +12,8 @@ from alpha_vantage.timeseries import TimeSeries
 # ----------------------------------------------
 
 # API settings and df creation
-key = 'WLVKCGWW5FUHRT62' # API Key
 # Direct link https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol=AAPL&interval=1min&apikey=WLVKCGWW5FUHRT62
-ts = TimeSeries(key, output_format='pandas') # 'pandas' or 'json' or 'csv'
+ts = TimeSeries(keys.key, output_format='pandas') # 'pandas' or 'json' or 'csv'
 ttm_data, ttm_meta_data = ts.get_intraday(symbol='AAPL',interval='1min', outputsize='compact')
 df = ttm_data.iloc[:50].copy()
 df=df.transpose()
@@ -220,4 +220,4 @@ def update_graph(timer): # fot every update takes the last 2 rows from df
         return recent_high, "bg-danger text-white border border-primary border-top-0"
 
 if __name__=='__main__':
-    app.run_server(debug=True, port=3000)
+    app.run_server(debug=True, port=8050)
