@@ -12,7 +12,6 @@ from alpha_vantage.timeseries import TimeSeries
 # ----------------------------------------------
 
 # API settings and df creation
-# Direct link https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol=AAPL&interval=1min&apikey=WLVKCGWW5FUHRT62
 ts = TimeSeries(keys.key, output_format='pandas') # 'pandas' or 'json' or 'csv'
 ttm_data, ttm_meta_data = ts.get_intraday(symbol='AAPL',interval='1min', outputsize='compact')
 df = ttm_data.iloc[:50].copy()
